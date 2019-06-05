@@ -1,0 +1,31 @@
+
+extends layout
+mixin article(img,title,desc,authImg,auth,date)
+        .row.spaced
+              .col
+                img(class="img-fluid" id="articleImage" src=img)
+              .col
+                h3= title 
+                p= desc
+              .col
+                img(class="im-fluid" id="author" src=authImg)
+                h6= auth
+                p= date
+
+block content
+  .container
+    #contain
+      .row
+        .col-12.col-sm-6.col-md-8
+          .jumbotron
+            #jumbo
+              h1(class="display-4") A blog about mental health and other things 
+              p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
+              hr(class="my-4")
+              a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
+        .col-6.col-md-4
+          img(class="img-fluid" src="images/indexGraphic.png")
+      .row.justify-content-center.spaced
+        h2 Featured Articles
+      each art in articles
+          +article(art.img,art.title,art.desc,art.authImg,art.auth,art.date)

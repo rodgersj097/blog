@@ -1,0 +1,26 @@
+body {
+ 
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#contain{
+  padding-top: 4rem;
+}
+#jumbo{ 
+  padding-bottom: 4rem;
+}
+.spaced{
+  margin-bottom: 4rem;
+}
+#articleImage{ 
+  max-width: 250px;
+  max-height: 250px;
+}
+#author{
+  max-width: 100px;
+  max-height: 100px; 
+}
+
+
+a {
+  color: #00B7FF;
+}
