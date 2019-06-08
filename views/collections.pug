@@ -1,0 +1,24 @@
+extend layout 
+mixin art(img,title,desc,authImg,auth,date,url)
+    .row.spaced
+        .col-md-4.mb-4
+            a(href=`./${url}`)
+                img(class="img-fluid" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
+        .col-md
+            a(href=`./${url}`)
+                h3= title 
+            p.giveMeEllipsis= desc
+        .col-md
+            h6= auth
+            img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
+            p= date
+
+
+block content 
+    .container
+        #contain
+            each art in articles 
+                +art(art.articleHero.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.date, art.url)
+
+
+

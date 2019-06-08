@@ -1,35 +1,20 @@
 var express = require('express');
 var router = express.Router();
-
+var Request = require('request')
+var articles 
 /* GET home page. */
 
 //!!!!!!*****hardcoded array needs to pull from database 
-const articles = [
-  {
-    img: "images/mental-health.png",
-    title: "Article Title",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed ipsum molestie, auctor velit non, consectetur diam. Nam a nunc mattis libero vulputate tempus id. ",
-    authImg: "/images/author.jpg",
-    auth: "Author Name",
-    date: "Date"
-  },
-  {
-    img: "images/mental-health.png",
-    title: "Article Title",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed ipsum molestie, auctor velit non, consectetur diam. Nam a nunc mattis libero vulputate tempus id. ",
-    authImg: "/images/author.jpg",
-    auth: "Author Name",
-    date: "Date"
-  },
-  {
-    img: "images/mental-health.png",
-    title: "Article Title",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed ipsum molestie, auctor velit non, consectetur diam. Nam a nunc mattis libero vulputate tempus id. ",
-    authImg: "/images/author.jpg",
-    auth: "Author Name",
-    date: "Date"
-  },
-]
+Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
+    if(err){ 
+        return console.log(err); 
+    }
+    console.log("articles Fetched Succesfully")
+   
+    articles = JSON.parse(body)
+})
+
+
 
 
 router.get('/', function(req, res, next) {
