@@ -1,18 +1,20 @@
 extends layout
 
 mixin art(img,title,desc,authImg,auth,date,url)
-    .row.spaced
-        .col-md
-            a(href=`./${url}`)
-                img(class="img-fluid" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
-        .col-md
-            a(href=`./${url}`)
-                h3= title 
-            p.giveMeEllipsis= desc
-        .col-md
-            h6= auth
-            img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
-            p= date
+    .card.mb-3
+      .row.no-gitters
+          .col-md-4
+              a(href=`blog/${url}`)
+                  img(class="card-image" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
+          .col-md-8
+            .card-body
+              a(href=`blog/${url}`)
+                  h3= title 
+              p.giveMeEllipsis= desc
+              .col-md
+                  h6= auth
+                  img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
+                  p= date
 
 
 block content
