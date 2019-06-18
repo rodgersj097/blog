@@ -47,13 +47,17 @@ section{
 }
 #hero{ 
   color: black; 
-  float: left;
-  margin-top: 4rem;
+  background-image: url(/images/cold-conifer-dawn-917494.jpg)
 }
 .spaced{
   margin: 4rem;
   
 }
+/* HERO HEADER */
+
+header {
+  background-image: url("/images/cold-conifer-dawn-917494.jpg")
+} 
 #articleImage{ 
   max-width: 250px;
   max-height: 250px;

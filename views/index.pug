@@ -2,31 +2,47 @@ extends layout
 
 mixin art(img,title,desc,authImg,auth,date,url)
     .row.spaced
-        .col-md
+      .uk-child-width-1-2.uk-grid
+        .uk-card.uk-card-default
+          .uk-card-media-top
             a(href=`./${url}`)
-                img(class="img-fluid" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
-        .col-md
+              img(class="img-fluid" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
+        .uk-card-body
+          h3.uk-card-title
             a(href=`./${url}`)
                 h3= title 
-            p.giveMeEllipsis= desc
+          p.giveMeEllipsis= desc
         .col-md
             h6= auth
             img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
             p= date
 
 block content
-  .wrapper 
-    .page-header.clear-filter(filter-color="green")
-      .page-header-image(style="background-image: url(/images/cold-conifer-dawn-917494.jpg);" data-parallax="true")
-        .row
-        #hero.container.container-fluid
-            .col-mb
-              h1(class="display-4") A blog about mental health and other things 
-              p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
-              a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
-    section.firstSection
-      .container  
-        .row 
-          h2 Featured Articles
+  .uk-contianer
+   .uk-background-cover.uk-height-viewport.uk-panel.uk-flex.uk-flex-center.uk-flex-middle(uk-parallax="bgy: -100" style="background-image: url(/images/cold-conifer-dawn-917494.jpg);")
+    .col-mb.uk-position-left.spaced(uk-parallax="y: 300; easing: -2")
+      h1(class="display-4") A blog about mental health and other things 
+      p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
+      a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
+  section.firstSection
+    .container  
+      .row 
+        h2 Featured Articles
+        .row.spaced
+          .uk-child-width-1-2.uk-grid
+            .uk-card.uk-card-default
+              .uk-card-media-top
+                a(href=`./${url}`)
+                  img(class="img-fluid" id="articleImage" src=`http://localhost:1337${img}` alt = articleHeroAltText)
+            .uk-card-body
+              h3.uk-card-title
+                a(href=`./${url}`)
+                    h3= "First BLog"  
+              p.giveMeEllipsis= "Lorem sofgsfgsfohnshkdaodfsfgodffkbznkfkrdkgzkdrgzkdfkbfkg"
+            .col-md
+                h6= Me
+                img(class="im-fluid" id="author" src=`/images/author.jpg` )
+                p= 19/20/2018
 
+            
             

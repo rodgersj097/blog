@@ -4,7 +4,6 @@ var Request = require('request')
 var axios = require('axios')
 var articles 
 /* GET home page. */
-
 //!!!!!!*****hardcoded array needs to pull from database 
 /* Request.get("http://localhost:1337/articles", (err, _res ,body) => { 
     if(err){ 
@@ -15,7 +14,6 @@ var articles
     articles = JSON.parse(body)
 })
  */
-
 router.get('/', function(req, res, next) {
 
     axios({
