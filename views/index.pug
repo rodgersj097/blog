@@ -16,21 +16,19 @@ mixin art(img,title,desc,authImg,auth,date,url)
                   img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
                   p= date
 
-
 block content
-  .container
-    #contain
-      .row
-        .col-12.col-sm-6.col-md-8.mb-6
-          .jumbotron
-            #jumbo
+  .wrapper 
+    .page-header.clear-filter(filter-color="green")
+      .page-header-image(style="background-image: url(/images/cold-conifer-dawn-917494.jpg);" data-parallax="true")
+        .row
+        #hero.container.container-fluid
+            .col-mb
               h1(class="display-4") A blog about mental health and other things 
               p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
-              hr(class="my-4")
               a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
-        .col-6.col-md-4.col-sm-6.mb-6
-          img(class="img-fluid" id="indexImg" src="images/indexGraphic.png")
-      .row.justify-content-center.spaced
-        h2 Featured Articles
-      each art in articles
-           +art(art.articleHero.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.date, art.url)
+    section.firstSection
+      .container  
+        .row 
+          h2 Featured Articles
+
+            
