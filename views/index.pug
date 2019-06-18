@@ -14,19 +14,19 @@ mixin art(img,title,desc,authImg,auth,date,url)
             img(class="im-fluid" id="author" src=`http://localhost:1337${authImg}` )
             p= date
 
-
 block content
   .wrapper 
     .page-header.clear-filter(filter-color="green")
       .page-header-image(style="background-image: url(/images/cold-conifer-dawn-917494.jpg);" data-parallax="true")
         .row
-        #hero
-          .col-12.col-sm-6.col-md-8.mb-6
-            h1(class="display-4") A blog about mental health and other things 
-            p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
-            a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
-  .container  
-    .row 
-      .col-md 
-        h2 Featured Articles
+        #hero.container.container-fluid
+            .col-mb
+              h1(class="display-4") A blog about mental health and other things 
+              p(class="lead") This is a really helpful description that we are going to figure out later but keep it here for now for design purpoese!
+              a(class="btn btn-primary btn-lg"  href="/blog") Read some Articles
+    section.firstSection
+      .container  
+        .row 
+          h2 Featured Articles
+
             
