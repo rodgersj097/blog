@@ -3,47 +3,50 @@ var router = express.Router();
 var Request = require('request')
 var axios = require('axios')
 var articles 
-/* GET home page. */
-
+//GET home page. 
 //!!!!!!*****hardcoded array needs to pull from database 
-/* Request.get("http://localhost:1337/articles", (err, _res ,body) => { 
-    if(err){ 
-        return console.log(err); 
-    }
-    console.log("articles Fetched Succesfully")
-   
-    articles = JSON.parse(body)
-})
- */
 
-router.get('/', function(req, res, next) {
 
-    axios({
-        url: 'http://localhost:1337/graphql',
-        method: 'post', 
+router.get('/',  async function(req, res, next) {
+ 
+   await axios({
+        url:"http://localhost:1337/graphql",
+        method: "POST", 
         data: { 
-            query:`
-                articles{
-                  URL
-                  articleTitle
-                  articleContent
-                  articleDescription
-                  author{
-                    authorName
-                    authorImage{url}
-                  }
+            query: `
+            query{
+                articles
+                {
+                  
+                id
+                url
+                articleTitle
+                articleHero{ 
+                      url 
+                    }
+                  articleHeroAltText
+                articleDescription
+                articleContents
+                  metaKeywords
+                  metaDescription
+                author{ 
+                 authorName
+                 authorImage{
+                  url 
                 }
-               ` 
+                }
+                Date
+                }
+              }
+            `
         }
     }).then((result) => { 
-        articles = result.data
-    }).catch((err)=>{
-        console.log(err)
-    }).finally(function(){ 
-        console.log('Articles Fetched')
+        articles = result.data.data.articles
+        
     })
-
-console.log(articles)
+    .catch((err) => { 
+        console.log(err)
+    }) 
   res.render('index', { title: 'Krista and Megan`s Blog' , articles});
 });
 module.exports = router;

@@ -1,25 +1,6 @@
 extend layout
 
 block content 
-    .container.border
-        #containArticle
-            .row
-                .col-md#articleHeader
-                    h1= articleTitle
-            .row
-                .col-md-2
-                    img(src=`http://localhost:1337${author.authorImage.url}` id="authorSmall")  
-                .col-md-4
-                    p= author.authorName
-                .col-md-6
-                    p= Date
-                    
-                   
-            .row
-                img(id="articleHero" src=`http://localhost:1337${articleHero.url}` alt=articleHeroAltText) 
-            .row 
-                .articleContent
-                p(style='white-space:pre-wrap')= articleContents
-                 
-                    
+    .uk-background-contain.uk-height-large(style=`background-image: url(http://localhost:1337${articleHero.url})`)
+         
    

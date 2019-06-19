@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-exports.getAllArticles = routePath => async (req,res,next) => { 
+exports.getAllArticles = async (req,res,next) => { 
     await axios({
         url: "http://localhost:1337/graphql", 
         method: "POST", 
@@ -20,7 +20,7 @@ exports.getAllArticles = routePath => async (req,res,next) => {
             }
                 `
         }.then((result)=>{ 
-            res.render(routePath, result)
+            return result
         })
         .catch((e)=>{ 
             console.log(`There was an error fetching articles ${e}`)
