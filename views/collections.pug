@@ -12,7 +12,7 @@ mixin art(img,title,desc,authImg,auth,date,url)
                         h3.uk-card-title.uk-button.uk-button-text= title 
                     p.uk-description-list.uk-text-small= desc
                     a.uk-button.uk-button-text(href=`/blog/${url}`) Read More
-                    .uk-card-footer
+                .uk-card-footer
                     .uk-column-1-3
                         img.uk-border-circle(width="40" height="40"  src=`http://localhost:1337${authImg}` )
                         h6= auth

@@ -1,6 +1,14 @@
-extend layout
+extends layout
 
 block content 
-    .uk-background-contain.uk-height-large(style=`background-image: url(http://localhost:1337${articleHero.url})`)
-         
+    .uk-section 
+        .uk-container 
+            .uk-article 
+                img.uk-margin-medium-bottom(src=`http://localhost:1337${articleHero.url}` height="500px" width="800px")
+                h1.uk-article-title= articleTitle 
+                .uk-article-meta
+                    img.uk-border-circle(width="60" height="60"  src=`http://localhost:1337${author.authorImage.url}` )
+                    p= `Written By ${author.authorName} on ${Date.substr(0,10)}` 
+                p.uk-text-lead= articleDescription 
+                p(style="white-space:pre-wrap")= articleContents
    
