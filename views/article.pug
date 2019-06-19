@@ -1,25 +1,14 @@
-extend layout
+extends layout
 
 block content 
-    .container.border
-        #containArticle
-            .row
-                .col-md#articleHeader
-                    h1= articleTitle
-            .row
-                .col-md-2
-                    img(src=`http://localhost:1337${author.authorImage.url}` id="authorSmall")  
-                .col-md-4
-                    p= author.authorName
-                .col-md-6
-                    p= Date
-                    
-                   
-            .row
-                img(id="articleHero" src=`http://localhost:1337${articleHero.url}` alt=articleHeroAltText) 
-            .row 
-                .articleContent
-                p(style='white-space:pre-wrap')= articleContents
-                 
-                    
+    .uk-section 
+        .uk-container 
+            .uk-article 
+                img.uk-margin-medium-bottom(src=`http://localhost:1337${articleHero.url}` height="500px" width="800px")
+                h1.uk-article-title= articleTitle 
+                .uk-article-meta
+                    img.uk-border-circle(width="60" height="60"  src=`http://localhost:1337${author.authorImage.url}` )
+                    p= `Written By ${author.authorName} on ${Date.substr(0,10)}` 
+                p.uk-text-lead= articleDescription 
+                p(style="white-space:pre-wrap")= articleContents
    

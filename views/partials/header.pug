@@ -1,4 +1,4 @@
-nav.navbar.sticky-top.navbar-expand-lg.navbar-light
+nav#nav-bar.navbar.sticky-top.navbar-expand-lg.navbar-light
     a.navbar-brand(href="/") Krista and Megan`s Blog
     button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
@@ -10,7 +10,23 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-light
                 span.sr-only (current)
             li.nav-item
             a.nav-link(href="/blog/collections") Blog 
-        button.btn.btn-primary(type="button") Subscribe
-        form.form-inline.my-2.my-lg-0
-            input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-            button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
+        form.form-inline.ml-auto(data-background-color)
+            .input-group
+                .input-group-prepend
+                    span.input-group-text 
+                        i.now-ui-icons.ui-1_zoom-bold
+                input.form-control(type="text" placeholder="Search")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

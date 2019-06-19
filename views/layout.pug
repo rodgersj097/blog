@@ -4,13 +4,31 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" href="/stylesheets/bootstrap.css" )
-  
+    link(href="/stylesheets/now-ui-kit.css?v=1.2.0" rel="stylesheet")
+    link(href="/stylesheets/bootstrap.css" rel="stylesheet")
+    // UIkit CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css")
+    script(async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+    script.
+      (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2720865875486455",
+      enable_page_level_ads: true
+      });
   body
     include partials/header.pug
     block content
     include partials/footer.pug
     block scripts 
-    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
-    script(src="/javascripts/bootstrap.js" )
+      script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
+      script(src="/javascripts/bootstrap.js")
+      script(src="/javascripts/main.js")
+      <!-- Plugins -->
+      <!--   Core JS Files   -->
+      script(src="/javascripts/core/jquery.min.js" type="text/javascript")
+      script(src="/javascripts/core/popper.min.js" type="text/javascript")
+      script(src="/javascripts/core/bootstrap.min.js" type="text/javascript")
+      // UIkit JS
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js")
+
