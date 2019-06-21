@@ -4,7 +4,7 @@ mixin art(img,title,desc,authImg,auth,date,url,cat)
         .uk-card.uk-card-default(uk-scrollspy="cls: uk-animation-slide-bottom")
             .uk-card-media-top
                 a(href=`/blog/${url}`)
-                    img( src=`http://localhost:1337${img}` alt = articleHeroAltText)
+                    img( src=`https://radiant-atoll-86561.herokuapp.com${img}` alt = articleHeroAltText)
             .uk-card-body
                 if cat 
                     .uk-card-badge.uk-label=  cat
@@ -16,7 +16,7 @@ mixin art(img,title,desc,authImg,auth,date,url,cat)
                 a.uk-button.uk-button-text(href=`/blog/${url}`) Read More
             .uk-card-footer
                 .uk-column-1-3
-                    img.uk-border-circle(width="40" height="40"  src=`http://localhost:1337${authImg}` )
+                    img.uk-border-circle(width="40" height="40"  src=`https://radiant-atoll-86561.herokuapp.com${authImg}` )
                     h6= auth
                     p= date.substr(0,10)
 

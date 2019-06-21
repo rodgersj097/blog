@@ -14,7 +14,7 @@ console.log("Starting to fetch articles")
 
 /* GET users listing. */
 router.get('/:route', function(req, res, next) {
-  Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
+  Request.get("https://radiant-atoll-86561.herokuapp.com/Articles", (err, _res ,body) => { 
     if(err){ 
         return console.log(err); 
     }

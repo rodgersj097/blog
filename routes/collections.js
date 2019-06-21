@@ -7,7 +7,7 @@ var articles = []
 console.log(articles)
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
- await Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
+ await Request.get("https://radiant-atoll-86561.herokuapp.com/Articles", (err, _res ,body) => { 
     if(err){ 
         return console.log(err); 
     }
