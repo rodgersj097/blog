@@ -7,7 +7,14 @@ var articles = []
 console.log("Starting to fetch articles")
 
 
-Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
+
+
+
+
+
+/* GET users listing. */
+router.get('/:route', function(req, res, next) {
+  Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
     if(err){ 
         return console.log(err); 
     }
@@ -15,15 +22,8 @@ Request.get("http://localhost:1337/Articles", (err, _res ,body) => {
    
     articles = JSON.parse(body)
 })
-
-
-
-
-/* GET users listing. */
-router.get('/:route', function(req, res, next) {
  
   const article = articles.find(art => art.url === req.params.route)
-  article.Date = article.Date.substr(0,10)
   console.log(req.params.route)
     res.render('article',  article );
   });

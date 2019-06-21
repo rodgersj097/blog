@@ -1,5 +1,6 @@
 nav#nav-bar.navbar.sticky-top.navbar-expand-lg.navbar-light
-    a.navbar-brand(href="/") Krista and Megan`s Blog
+    a.navbar-brand(href="/")
+        img(src="/images/logo_transparent.png" width="60px" height="60px")
     button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
     #navbarCollapse.collapse.navbar-collapse
@@ -9,24 +10,24 @@ nav#nav-bar.navbar.sticky-top.navbar-expand-lg.navbar-light
                 | Home 
                 span.sr-only (current)
             li.nav-item
-            a.nav-link(href="/blog/collections") Blog 
-        form.form-inline.ml-auto(data-background-color)
-            .input-group
-                .input-group-prepend
-                    span.input-group-text 
-                        i.now-ui-icons.ui-1_zoom-bold
-                input.form-control(type="text" placeholder="Search")
-
-
-
-
-
-
-
-
-
-
-
+                a.nav-link(href="/blog/collections") Blog
+        .uk-navbar-right
+            a.nav-link(href="/user") Sign in
+        
+            form.form-inline.ml-auto(data-background-color)
+                .input-group
+                    div(height="30px")
+                        script.
+                            (function() {
+                            var cx = '017503746288945114135:qfwgz0w32ay';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                            })();
+                        gcse:search
 
 
 
