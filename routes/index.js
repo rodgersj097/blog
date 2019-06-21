@@ -14,7 +14,7 @@ router.get('/', (req,res,next)=>{
 router.get('/home',  async function(req, res, next) {
  
    await axios({
-        url:"http://localhost:1337/graphql",
+        url:"https://radiant-atoll-86561.herokuapp.com/graphql",
         method: "POST", 
         data: { 
             query: `
