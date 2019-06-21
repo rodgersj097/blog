@@ -1,14 +1,24 @@
 extends layout
 
-block content 
-    .uk-section 
-        .uk-container 
+block content  
+    .uk-section
+        .uk-container
+            ul.uk-breadcrumb  
+                li: a(href="/") Home
+                li: a(href="/blog/collections") Blog
+                li= articleTitle
             .uk-article 
-                img.uk-margin-medium-bottom(src=`http://localhost:1337${articleHero.url}` height="500px" width="800px")
                 h1.uk-article-title= articleTitle 
+                img.uk-margin-medium-bottom(src=`http://localhost:1337${articleHero.url}` alt=`${articleHeroAltText}` )
                 .uk-article-meta
                     img.uk-border-circle(width="60" height="60"  src=`http://localhost:1337${author.authorImage.url}` )
                     p= `Written By ${author.authorName} on ${Date.substr(0,10)}` 
                 p.uk-text-lead= articleDescription 
-                p(style="white-space:pre-wrap")= articleContents
-   
+                p#content(style="white-space:pre-wrap")= articleContents
+
+block scripts
+    script(src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js")
+    script. 
+        var conv = new showdown.Converter();
+        var txt = document.getElementById('content').innerHTML;
+        document.getElementById('content').innerHTML = conv.makeHtml(txt);

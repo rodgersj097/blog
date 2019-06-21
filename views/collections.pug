@@ -1,30 +1,36 @@
 extends layout 
-mixin art(img,title,desc,authImg,auth,date,url)
-    .uk-grid
-        div(class="uk-child-width-1@m")
-            .uk-card.uk-card-default(uk-scrollspy="cls: uk-animation-slide-bottom")
-                .uk-card-media-top
-                    a(href=`/blog/${url}`)
-                        img( src=`http://localhost:1337${img}` alt = articleHeroAltText)
-                .uk-card-body
+mixin art(img,title,desc,authImg,auth,date,url,cat)
+    .uk-flex.uk-flex-wrap
+        .uk-card.uk-card-default(uk-scrollspy="cls: uk-animation-slide-bottom")
+            .uk-card-media-top
+                a(href=`/blog/${url}`)
+                    img( src=`http://localhost:1337${img}` alt = articleHeroAltText)
+            .uk-card-body
+                if cat 
+                    .uk-card-badge.uk-label=  cat
+                else 
                     .uk-card-badge.uk-label category
-                    a(href=`/blog/${url}`)
-                        h3.uk-card-title.uk-button.uk-button-text= title 
-                    p.uk-description-list.uk-text-small= desc
-                    a.uk-button.uk-button-text(href=`/blog/${url}`) Read More
-                .uk-card-footer
-                    .uk-column-1-3
-                        img.uk-border-circle(width="40" height="40"  src=`http://localhost:1337${authImg}` )
-                        h6= auth
-                        p= date.substr(0,10)
+                a(href=`/blog/${url}`)
+                    h3.uk-card-title.uk-button.uk-button-text= title 
+                p.uk-description-list.uk-text-small= desc
+                a.uk-button.uk-button-text(href=`/blog/${url}`) Read More
+            .uk-card-footer
+                .uk-column-1-3
+                    img.uk-border-circle(width="40" height="40"  src=`http://localhost:1337${authImg}` )
+                    h6= auth
+                    p= date.substr(0,10)
 
 
 block content 
     .uk-section
         .uk-container
-            .uk-column-1-3
+            ul.uk-breadcrumb  
+                li: a(href="/") Home
+                li: a(href="/blog/collections") Blog
+            h1 
+            div(class="uk-child-width-1-3@s" uk-grid="masonry: true") 
                 each art in articles 
-                    +art(art.articleHero.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.Date, art.url)
+                    +art(art.articleHero.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.Date, art.url, art.category)
 
 
 

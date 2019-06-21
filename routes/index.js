@@ -7,7 +7,11 @@ var articles
 //!!!!!!*****hardcoded array needs to pull from database 
 
 
-router.get('/',  async function(req, res, next) {
+router.get('/', (req,res,next)=>{ 
+  res.render('construction')
+})
+
+router.get('/home',  async function(req, res, next) {
  
    await axios({
         url:"http://localhost:1337/graphql",

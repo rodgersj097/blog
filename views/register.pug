@@ -1,0 +1,79 @@
+extends layout 
+
+block content
+    .uk-section.uk-section-muted.uk-flex.uk-flex-middle.uk-animation-fade(uk-height-viewport="")
+      .uk-width-1-1
+        .uk-container
+          .uk-grid-margin.uk-grid.uk-grid-stack(uk-grid="")
+            div(class="uk-width-1-1@m")
+              form.uk-margin.uk-width-large.uk-margin-auto.uk-card.uk-card-default.uk-card-body.uk-box-shadow-large(method="POST")
+                ul.uk-tab.uk-flex-center(uk-grid="" uk-switcher="animation: uk-animation-fade")
+                  li
+                    a(href="#") Sign Up
+                  li
+                    a(href="#") Log In
+                  li.uk-hidden Forgot Password?
+                ul.uk-switcher.uk-margin
+                  li
+                    h3.uk-card-title.uk-text-center Sign up today. It's free!
+                    form(method="POST" action="user/signup")
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: user")
+                          input.uk-input.uk-form-large(type="text" name="username" placeholder="Username")
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: mail")
+                          input.uk-input.uk-form-large(type="text" name="email" placeholder="Email address")
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: lock")
+                          input.uk-input.uk-form-large(type="password" name="password" placeholder="Set a password")
+                      .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
+                        label
+                          input.uk-checkbox(type="checkbox")
+                          |  I agree the Terms and Conditions.
+                      .uk-margin
+                        button.uk-button.uk-button-primary.uk-button-large.uk-width-1-1(type="submit") Login
+                      .uk-text-small.uk-text-center
+                        | Already have an account? 
+                        a(href="#" uk-switcher-item="1") Log in
+                  li
+                    h3.uk-card-title.uk-text-center Welcome back!
+                    form(method="POST" action="login")
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: mail")
+                          input.uk-input.uk-form-large(type="text" name="email" placeholder="Email address")
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: lock")
+                          input.uk-input.uk-form-large(type="password" name="password" placeholder="Password")
+                      .uk-margin.uk-text-center.uk-text-small(class="uk-text-right@s")
+                        a(href="#" uk-switcher-item="2") Forgot Password?
+                      .uk-margin
+                        button.uk-button.uk-button-primary.uk-button-large.uk-width-1-1 Login
+                      .uk-text-small.uk-text-center
+                        | Not registered? 
+                        a(href="#" uk-switcher-item="0") Create an account
+                  li
+                    h3.uk-card-title.uk-text-center Forgot your password?
+                    p.uk-text-center.uk-margin-auto(class="uk-width-medium@s") Enter your email address and we will send you a link to reset your password.
+                    form
+                      .uk-margin
+                        .uk-inline.uk-width-1-1
+                          span.uk-form-icon(uk-icon="icon: mail")
+                          input.uk-input.uk-form-large(type="text" placeholder="Email address")
+                      .uk-margin
+                        button.uk-button.uk-button-primary.uk-button-large.uk-width-1-1 Send Email
+                      .uk-text-small.uk-text-center
+                        a(href="#" uk-switcher-item="1") Back to login
+
+
+                    
+
+
+
+        
+
+            
