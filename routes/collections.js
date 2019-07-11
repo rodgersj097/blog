@@ -7,18 +7,16 @@ var articles = []
 console.log(articles)
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
- await Request.get("https://radiant-atoll-86561.herokuapp.com/Articles", (err, _res ,body) => { 
+ await Request.get("http://localhost:1337/Articles", (err, _res ,body) => { 
     if(err){ 
         return console.log(err); 
     }
     console.log("articles Fetched Succesfully")
-  
     articles = JSON.parse(body)
 })  
   res.render('collections', {title: 'MHCM' , articles} );
 });
-
-
+    
 //search quiry 
 
 module.exports = router;

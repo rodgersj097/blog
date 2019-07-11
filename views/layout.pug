@@ -28,5 +28,11 @@ html
       // UIkit JS
       script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js")
       script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js")
-      
+      // Global site tag (gtag.js) - Google Analytics
+      script(async="" src="https://www.googletagmanager.com/gtag/js?id=UA-143660018-1")
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-143660018-1');
 
