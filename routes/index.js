@@ -44,6 +44,6 @@ router.get("/", async function(req, res, next) {
     .catch(err => {
       console.log(err);
     });
-  res.render("index", { title: "Krista and Megan`s Blog", articles });
+  res.render("index", { title: "Mental Health Conscious Moms", articles });
 });
 module.exports = router;
