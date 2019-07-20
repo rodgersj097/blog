@@ -1,24 +1,23 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var Request = require('request')
+var Request = require("request");
 //var articles = require('../config/articleRequest')
-var articles = [] 
- 
-console.log(articles)
+var articles = [];
+
+console.log(articles);
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
- await Request.get("https://radiant-atoll-86561.herokuapp.com/Articles", (err, _res ,body) => { 
-    if(err){ 
-        return console.log(err); 
+router.get("/", async function(req, res, next) {
+  await Request.get("http://72.141.30.148/articles", (err, _res, body) => {
+    if (err) {
+      return console.log(err);
     }
-    console.log("articles Fetched Succesfully")
-  
-    articles = JSON.parse(body)
-})  
-  res.render('collections', {title: 'MHCM' , articles} );
+    console.log("articles Fetched Succesfully");
+
+    articles = JSON.parse(body);
+  });
+  res.render("collections", { title: "MHCM", articles });
 });
 
-
-//search quiry 
+//search quiry
 
 module.exports = router;

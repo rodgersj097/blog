@@ -5,7 +5,7 @@ mixin art(img,title,desc,authImg,auth,date,url)
     .uk-card.uk-card-default(uk-scrollspy="cls: uk-animation-slide-bottom")
       .uk-card-media-top
         a(href=`blog/${url}`)
-          img( src=`https://radiant-atoll-86561.herokuapp.com${img}` alt = articleHeroAltText)
+          img( src=`http://72.141.30.148${img}` alt = articleHeroAltText)
       .uk-card-body
         .uk-card-badge.uk-label Featured
         a(href=`blog/${url}`)
@@ -14,7 +14,7 @@ mixin art(img,title,desc,authImg,auth,date,url)
         a.uk-button.uk-button-text(href=`blog/${url}`) Read More
       .uk-card-footer
         .uk-column-1-3
-          img.uk-border-circle(width="40" height="40"  src=`https://radiant-atoll-86561.herokuapp.com${authImg}` )
+          img.uk-border-circle(width="40" height="40"  src=`http://72.141.30.148${authImg}` )
           h6= auth
           p= date.substr(0,10)
 
@@ -30,7 +30,7 @@ block content
         h2 Featured Articles
         div(class="uk-child-width-1-2@s" uk-grid="masonry: true")
           each art in articles
-            +art(art.articleHero.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.Date, art.url)
+            +art(art.articleImage.url, art.articleTitle, art.articleDescription, art.author.authorImage.url, art.author.authorName, art.Date, art.url)
 
             
             

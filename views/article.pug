@@ -9,11 +9,12 @@ block content
                 li= articleTitle
             .uk-article 
                 h1.uk-article-title= articleTitle 
-                img.uk-margin-medium-bottom(src=`https://radiant-atoll-86561.herokuapp.com${articleHero.url}` alt=`${articleHeroAltText}` )
+                img.uk-margin-medium-bottom(src=`http://72.141.30.148${articleImage.url}` alt=`${articleHeroAltText}` )
                 .uk-article-meta
-                    img.uk-border-circle(width="60" height="60"  src=`https://radiant-atoll-86561.herokuapp.com${author.authorImage.url}` )
+                    img.uk-border-circle(width="60" height="60"  src=`http://72.141.30.148${author.authorImage.url}` )
                     p= `Written By ${author.authorName} on ${Date.substr(0,10)}` 
-                p.uk-text-lead= articleDescription 
+                    meta(name="description" content=`${metaDescription}`)
+                    meta(name="keywords" content=`${metaKeywords}`)
                 p#content(style="white-space:pre-wrap")= articleContents
 
 block scripts
