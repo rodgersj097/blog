@@ -4,6 +4,15 @@ var Request = require("request");
 var axios = require("axios");
 var articles;
 //GET home page.
+
+router.get(
+  "/.well-known/acme-challenge/hqNxy7qQFgZ8E3QAg5eVeznIgmOPFXT13G9q2aI-Ty4",
+  function(req, res, next) {
+    res.send(
+      "hqNxy7qQFgZ8E3QAg5eVeznIgmOPFXT13G9q2aI-Ty4.j7zGztBzaGx1tjaoOi3Y2bcT2uvZj0lpRWm83cMp4Hs"
+    );
+  }
+);
 //!!!!!!*****hardcoded array needs to pull from database
 router.get("/", async function(req, res, next) {
   await axios({
