@@ -1,19 +1,16 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var Request = require('request')
-var axios = require('axios')
-var articles 
-//GET home page. 
-//!!!!!!*****hardcoded array needs to pull from database 
-
-
-router.get('/',  async function(req, res, next) {
- 
-   await axios({
-        url:"http://localhost:1337/graphql",
-        method: "POST", 
-        data: { 
-            query: `
+var Request = require("request");
+var axios = require("axios");
+var articles;
+//GET home page.
+//!!!!!!*****hardcoded array needs to pull from database
+router.get("/", async function(req, res, next) {
+  await axios({
+    url: "http://72.141.30.148/graphql",
+    method: "POST",
+    data: {
+      query: `
             query{
                 articles
                 {
@@ -21,7 +18,7 @@ router.get('/',  async function(req, res, next) {
                 id
                 url
                 articleTitle
-                articleHero{ 
+                articleImage{ 
                       url 
                     }
                   articleHeroAltText
@@ -39,14 +36,14 @@ router.get('/',  async function(req, res, next) {
                 }
               }
             `
-        }
-    }).then((result) => { 
-        articles = result.data.data.articles
-        
+    }
+  })
+    .then(result => {
+      articles = result.data.data.articles;
     })
-    .catch((err) => { 
-        console.log(err)
-    }) 
-  res.render('index', { title: 'Krista and Megan`s Blog' , articles});
+    .catch(err => {
+      console.log(err);
+    });
+  res.render("index", { title: "Mental Health Conscious Moms", articles });
 });
 module.exports = router;

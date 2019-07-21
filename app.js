@@ -4,19 +4,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var db = require('./config/DBConnect')
-
+var user = require('./model/user')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var articleRouter = require('./routes/article')
 var collectionRouter = require('./routes/collections')
+var compression = require('compression')
 var app = express();
+var mongoose = require('mongoose')
+mongoose.connect(
+  'mongodb+srv://rodgersj097:OAo8RQYjmMWycs79@cluster0-bronw.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}
+)
 
-
+require('./config/passport')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.use(compression())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -27,15 +32,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blog/collections', collectionRouter);
 app.use('/blog', articleRouter)
+app.use('/user', usersRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-//setup DB
-db.authenticate()
-  .then(() => console.log('Database connected ..'))
-    .catch(err => console.log('Error' + err))
 
 // error handler
 app.use(function(err, req, res, next) {
