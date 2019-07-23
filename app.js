@@ -17,9 +17,7 @@ mongoose.connect(
   "mongodb+srv://rodgersj097:OAo8RQYjmMWycs79@cluster0-bronw.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
-
 require("./config/passport");
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -30,7 +28,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 //set up www and https redirects
-app.all("*", require("express-force-domain")("https://www.mhcm.ca"));
+app.all("*", require("express-force-domain")("http://www.mhcm.ca"));
+function requireHTTPS(req, res, next) {
+  // The 'x-forwarded-proto' check is for Heroku
+  if (
+    !req.secure &&
+    req.get("x-forwarded-proto") !== "https" &&
+    process.env.NODE_ENV !== "development"
+  ) {
+    return res.redirect("https://" + req.get("host") + req.url);
+  }
+  next();
+}
+app.use(requireHTTPS);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/blog/collections", collectionRouter);
