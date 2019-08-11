@@ -1,0 +1,56 @@
+extends layout
+
+block content 
+    .uk-background-cover.uk-height-large.uk-panel.uk-flex.uk-flex-center.uk-flex-middle( style=`background-image: url(${image}`)
+    .uk-container.spaced
+        .uk-column-1-4
+            img(data-src='/images/profilePic.png' width="200" height="200" uk-img)  
+            h4= `Username: ${user.username}`
+            h4= `Email: ${user.email}`
+            if !user.bio
+                h4= `Bio: Write a bio! Tell us about yourself`
+            else 
+                h4= `Bio: ${user.bio}`
+            .uk-flex
+                form
+                    .uk-inline.uk-width-1-1 
+                        span.uk-form-icon(uk-icon="icon: user") 
+                        input.uk-input.uk-form-large(type="text" name="username" placeholder="Username")
+                        input.id(type="hidden" name="id" value=`${user._id}`)
+                    .uk-inline.uk-width-1-1 
+                        span.uk-form-icon(uk-icon="icon: mail") 
+                        input.uk-input.uk-form-large(type="text" name="email" placeholder="Email")
+                    .uk-inline.uk-width-1-1 
+                        textarea.uk-textarea.uk-form-large(type="textarea" name="bio" placeholder="Write a bio! Tell us about yourself")
+                    .uk-margin
+                        button.update.uk-button.uk-button-primary.uk-button-large.uk-width-1-1 Update
+           
+
+    script.
+       var btn =  document.querySelector('.update')
+       var email = $('[name= username').val()
+       var username = $('[name=username]').val()
+       var bio = $('[name=bio]').val()
+       var id = $('[name=id]').val()
+       btn.addEventListener('click', ()=>{ 
+           $.post("/user/update", { 
+                    email : email,
+                    username : username,
+                    bio : bio, 
+                    id : id
+                }
+                 .always( function(){
+                    console.log("process complete")
+                })
+                .done()function(data){
+                }),
+                .fail( function(err){
+                    console.log("error: " + err)
+                })
+
+           })
+     
+
+
+
+    

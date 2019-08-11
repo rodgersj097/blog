@@ -7,8 +7,8 @@ var articles = [];
 console.log("Starting to fetch articles");
 
 /* GET users listing. */
-router.get("/:route", function(req, res, next) {
-  Request.get("http://72.141.30.148/articles", (err, _res, body) => {
+router.get("/:route", async function (req, res, next) {
+  await Request.get("http://72.141.30.148/articles", (err, _res, body) => {
     if (err) {
       return console.log(err);
     }

@@ -8,6 +8,7 @@
 *{
   word-wrap: break-word;
 }
+
 body {
  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,6 +18,7 @@ nav{
 
   background-color: var(--primary-color)
 }
+
 #contain{
   padding-top: 4rem;
 }
@@ -78,8 +80,14 @@ header {
 
 a {
   color: #00B7FF;
+  list-style:none; 
 }
-
+.nav-item { 
+  list-style: none;
+}
+.dropdown{ 
+  margin-right: 6rem;
+}
 footer{ 
   background:var(--primary-color);
 }

@@ -16,7 +16,7 @@ block content
                 ul.uk-switcher.uk-margin
                   li
                     h3.uk-card-title.uk-text-center Sign up today. It's free!
-                    form(method="POST" action="user/signup")
+                    form(method="POST" action="/user")
                       .uk-margin
                         .uk-inline.uk-width-1-1
                           span.uk-form-icon(uk-icon="icon: user")
@@ -40,11 +40,11 @@ block content
                         a(href="#" uk-switcher-item="1") Log in
                   li
                     h3.uk-card-title.uk-text-center Welcome back!
-                    form(method="POST" action="login")
+                    form(method="POST" action="user/signin")
                       .uk-margin
                         .uk-inline.uk-width-1-1
                           span.uk-form-icon(uk-icon="icon: mail")
-                          input.uk-input.uk-form-large(type="text" name="email" placeholder="Email address")
+                          input.uk-input.uk-form-large(type="text" name="username" placeholder="Username")
                       .uk-margin
                         .uk-inline.uk-width-1-1
                           span.uk-form-icon(uk-icon="icon: lock")

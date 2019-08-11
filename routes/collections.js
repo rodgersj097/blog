@@ -4,10 +4,13 @@ var Request = require("request");
 //var articles = require('../config/articleRequest')
 var articles = [];
 
+
+
+
 console.log(articles);
 /* GET users listing. */
-router.get("/", function(req, res, next) {
-  Request.get("http://72.141.30.148/articles", (err, _res, body) => {
+router.get("/", async function (req, res, next) {
+  await Request.get("http://72.141.30.148/articles", (err, _res, body) => {
     if (err) {
       return console.log(err);
     }
